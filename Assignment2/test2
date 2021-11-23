@@ -1,0 +1,7 @@
+#!/bin/bash
+cpuid="0x4FFFFFFE"
+output=$(cpuid -l $cpuid -1)
+ebx=$(echo $output | grep 0x4ffffffe | awk '{print toupper($5)}' | cut -c7-14)
+ecx=$(echo $output | grep 0x4ffffffe | awk '{print toupper($6)}' | cut -c7-14)
+cycles=$(echo "ibase=16; $ebx$ecx" | bc)
+echo "CPUID($cpuid) CPU_CYCLES=$cycles"

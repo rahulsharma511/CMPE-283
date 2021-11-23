@@ -1,0 +1,6 @@
+#!/bin/bash
+cpuid="0x4FFFFFFF"
+output=$(cpuid -l $cpuid -1)
+eax=$(echo $output | grep 0x4fffffff | awk '{print toupper($4)}' | cut -c7-14)
+exits=$(echo "ibase=16; $eax" | bc)
+echo "CPUID($cpuid)  NUMBER_OF_EXITS=$exits"
