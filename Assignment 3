@@ -1,0 +1,31 @@
+Work Done by Rahul :-
+•	Created leaf node %eax= 0x4FFFFFFC
+•	Made required changes in cpuid.c and vmx.c
+•	Installed cupid Pakage on inner VM
+•	Tested and Verified results
+•	Documented the steps and results.
+
+Work Done by Bhargav :-
+•	Created leaf node %eax= 0x4FFFFFFD
+•	Made required changes in cpuid.c and vmx.c
+•	Tested and Verified results
+•	Documented the steps and results.
+
+Prerequisites:-
+Need a working assignment 1
+
+Steps:-
+1.sudo apt install vim build-essential libncurses-dev bison flex libssl-dev libelf-dev
+2.cd linux
+3.uname -a
+4.cp -v /boot/config-$(uname -r) .config && make oldconfig && make -j 6 && make -j 6 modules
+5.sudo bash
+6.make modules_install && make install
+after changes
+sudo make && sudo make modules_install && sudo make install
+Case I :
+cpuid -l 0x4FFFFFFC
+dmesg for kernel message output
+Case II :
+cpuid -l 0x4FFFFFFD -s 12
+dmesg for kernel message output
